@@ -87,20 +87,16 @@ module Sass
 	      end
 	    
         self.children = ordered_children.compact
-        #@children = ordered_children.compact
 	    end
 	
 	  end
   end
 end
 
-#ARGV
-
-
 engine = Sass::Engine.for_file(ARGV[0], {:style => :expanded})
 tree = engine.to_tree
 tree.children.each do |n|
- 
+   
   n.order_children!
   puts n.to_scss
   
